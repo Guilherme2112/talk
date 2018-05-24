@@ -34,8 +34,20 @@ function thirdMessage() {
 }
 
 async function test() {
-  responses =  await Promise.all([firstMessage(), secondMessage(), thirdMessage()]);
-  return responses.map(r => r.json())
+  try {
+    responses =  await Promise.all([firstMessage(), secondMessage(), thirdMessage()]);
+    return responses
+  }
+  catch (err) {
+    return { message: err.message }
+  }
 }
 
-test().map(t => console.log(t.message))
+async function printResults() {
+  try {
+    objects = await test();
+    objects.map(function (object) { console.log(object.message)})
+  } catch (err) {
+    console.error(err.message)
+  }
+}
