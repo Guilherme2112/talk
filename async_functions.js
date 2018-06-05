@@ -1,8 +1,7 @@
 async function sequentialUse(params) {
-  x = await demora2s();
-  y = await demora4s();
-  console.log(x)
-  console.log(y)
+  res = Promise.all([demora2s(),demora4s()])
+  console.log(res[1])
+  console.log(res[2])
 }
 
 function demora4s() {
@@ -51,3 +50,23 @@ async function printResults() {
     console.error(err.message)
   }
 }
+
+async function test() {
+  for await (const x of arr) {
+    console.log(x)
+  }
+}
+
+
+
+- Mais figuras
+- Dúvidas separado e antes do obg
+- Trocar temas por agenda
+- Deixar o cógido preparado
+- Treinar no espelho
+- Falar alto
+- Não cruzar os braços
+- Colocar figuras
+- Colocar slides p / async iterator
+
+- Colocar vantagens e desvantagens de cada solução
