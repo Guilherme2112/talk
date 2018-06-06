@@ -44,11 +44,11 @@ async function test() {
 
 async function printResults() {
   try {
-    objects = await test();
-    objects.map(function (object) { console.log(object.message)})
-  } catch (err) {
+    var objects = await performRequest(); //await 'aguarda' a resolução da promise
+  } catch (err) { // A rejeição de uma promise em uma async function dispara exception
     console.error(err.message)
   }
+  //Async functions sempre retornam promises.
 }
 
 async function test() {
